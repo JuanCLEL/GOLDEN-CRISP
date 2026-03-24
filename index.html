@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Crisp - Menú Digital</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffcc00, #ff5733, #8b4513);
+    background-attachment: fixed;
+  }
+
+  header {
+    background: #fff3e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  header img { height: 60px; margin-right: 15px; border-radius: 5px; }
+
+  nav {
+    background: #b22222;
+    max-width: 1000px;
+    margin: 10px auto;
+    border-radius: 10px;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 12px;
+    margin: 0;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  nav a:hover { color: #ffcc00; }
+
+  .contenedor {
+    display: none;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  .activo { display: block; animation: fadeIn 0.5s; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .taller {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 6px solid #b22222;
+    background: #fdfdfd;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+
+  .taller:hover { background: #f5f5f5; }
+
+  .taller img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .info-item h3 { margin: 0 0 5px 0; color: #333; }
+  .info-item p { margin: 0; color: #666; font-size: 0.9em; }
+
+  .mapa iframe {
+    width: 100%;
+    height: 350px;
+    border: 2px solid #eee;
+    border-radius: 15px;
+  }
+
+  .resumen {
+    margin-top: 25px;
+    padding: 20px;
+    border: 2px dashed #b22222;
+    background: #fff8f0;
+    border-radius: 10px;
+  }
+
+  form h3 { border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 25px; }
+
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px 0;
+  }
+
+  input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background: #b22222;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1em;
+    margin-top: 20px;
+  }
+
+  button:hover { background: #8b0000; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="img/GCFoto.jfif" alt="Logo Golden Crisp">
+  <h1>Golden Crisp 🍟</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a onclick="mostrar('inicio')">Inicio</a></li>
+    <li><a onclick="mostrar('menu')">Menú</a></li>
+    <li><a onclick="mostrar('combos')">Combos</a></li>
+    <li><a onclick="mostrar('ubicacion')">Ubicación</a></li>
+    <li><a onclick="mostrar('pedidos')">Pedidos</a></li>
+    <li><a onclick="mostrar('contacto')">Contacto</a></li>
+  </ul>
+</nav>
+
+<section id="inicio" class="contenedor activo">
+  <h2 style="text-align:center;">¡Bienvenidos a Golden Crisp!</h2>
+  <p style="text-align:center; font-size: 1.2em;">La mejor experiencia en papas fritas premium.</p>
+  <div style="text-align:center; margin-top: 20px;">
+    <img src="img/GCFoto.jfif" style="width:250px; border-radius:20px; shadow: 0 5px 15px rgba(0,0,0,0.2);">
+  </div>
+</section>
+
+<section id="menu" class="contenedor">
+  <h2 style="text-align:center;">Nuestro Menú Completo 🍟</h2>
+  <div class="taller"><img src="img/PapasNA.png"><div class="info-item"><h3>Papas Naturales</h3><p>El clásico sabor crujiente.</p></div></div>
+  <div class="taller"><img src="img/PapasQS.png"><div class="info-item"><h3>Papas con Queso</h3><p>Bañadas en cheddar fundido.</p></div></div>
+  <div class="taller"><img src="img/PapasT.png"><div class="info-item"><h3>Papas con Tocino</h3><p>Queso y trozos crujientes de tocino.</p></div></div>
+  <div class="taller"><img src="img/PapasB.png"><div class="info-item"><h3>Papas Bravas</h3><p>Con nuestro toque especial picante.</p></div></div>
+  <div class="taller"><img src="img/PapasCT.png"><div class="info-item"><h3>Papas con Todo</h3><p>¡La experiencia completa de Golden Crisp!</p></div></div>
+  <div class="taller"><img src="img/PapasG.png"><div class="info-item"><h3>Papas de Gajo</h3><p>Corte rústico y sazón artesanal.</p></div></div>
+</section>
+
+<section id="combos" class="contenedor">
+  <h2 style="text-align:center;">Combos Especiales 🥤🍟</h2>
+  <div class="taller">
+    <img src="img/C1.png">
+    <div class="info-item"><h3>1. Combo Individual Classic</h3><p>Papas Naturales + Refresco frío.</p></div>
+  </div>
+  <div class="taller">
+    <img src="img/C2.png">
+    <div class="info-item"><h3>2. Combo Power-Loaded</h3><p>Elige Papas con Queso o Tocino + Refresco.</p></div>
+  </div>
+  <div class="taller">
+    <img src="img/C3.png">
+    <div class="info-item"><h3>3. Combo Fuego-Crisp</h3><p>Papas Bravas + Refresco de Limón o Té Helado.</p></div>
+  </div>
+  <div class="taller">
+    <img src="img/C4.png">
+    <div class="info-item"><h3>4. Combo "El Monstruo"</h3><p>Papas con Todo (Grande) + Refresco Jumbo.</p></div>
+  </div>
+  <div class="taller">
+    <img src="img/C5.png">
+    <div class="info-item"><h3>5. Dúo Combo Crisp-Master</h3><p>2 Órdenes a elegir + 2 Refrescos.</p></div>
+  </div>
+</section>
+
+<section id="ubicacion" class="contenedor mapa">
+  <h2 style="text-align:center;">Encuéntranos 📍</h2>
+  <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+    <iframe src="https://www.google.com/maps?q=19.613384,-99.3393761&hl=es&z=19&output=embed"></iframe>
+  </div>
+  <div style="text-align:center;">
+    <a href="https://goo.gl/maps/example" target="_blank" style="color: #b22222; font-weight: bold;">Ver en Google Maps</a>
+  </div>
+</section>
+
+<section id="pedidos" class="contenedor">
+  <h2 style="text-align:center;">Haz tu Pedido 🛍️</h2>
+  <form onsubmit="pedido(event)">
+    
+    <h3>📦 Nuestros Combos</h3>
+    <div class="input-group">Individual Classic <input type="number" id="c1" value="0" min="0"></div>
+    <div class="input-group">Power-Loaded <input type="number" id="c2" value="0" min="0"></div>
+    <div class="input-group">Fuego-Crisp <input type="number" id="c3" value="0" min="0"></div>
+    <div class="input-group">"El Monstruo" <input type="number" id="c4" value="0" min="0"></div>
+    <div class="input-group">Dúo Crisp-Master <input type="number" id="c5" value="0" min="0"></div>
+
+    <h3>🍟 Porciones Individuales</h3>
+    <div class="input-group">Papas Naturales <input type="number" id="p1" value="0" min="0"></div>
+    <div class="input-group">Papas con Queso <input type="number" id="p2" value="0" min="0"></div>
+    <div class="input-group">Papas con Tocino <input type="number" id="p3" value="0" min="0"></div>
+    <div class="input-group">Papas de Gajo <input type="number" id="p4" value="0" min="0"></div>
+
+    <h3>🌶️ Extras</h3>
+    <label><input type="checkbox" class="ex" value="Queso Extra"> Queso Extra</label><br>
+    <label><input type="checkbox" class="ex" value="Jalapeños"> Jalapeños</label><br>
+    <label><input type="checkbox" class="ex" value="Catsup/Mayonesa"> Más aderezos</label><br>
+
+    <button type="submit">Generar Resumen de Pedido</button>
+  </form>
+
+  <div id="resumen" class="resumen" style="display:none;">
+    <h3 style="margin-top:0;">🧾 Detalle de tu Pedido:</h3>
+    <ul id="lista" style="padding-left: 20px;"></ul>
+    <p style="font-size: 0.8em; color: #777;">* Presenta este resumen en caja para pagar.</p>
+  </div>
+
+  
+</section>
+
+<section id="contacto" class="contenedor">
+  <h2 style="text-align:center;">Contáctanos</h2>
+  <div style="text-align:center; font-size: 1.1em;">
+    <p>📞 <strong>Teléfono:</strong> 5647991052</p>
+    <p>📧 <strong>Email:</strong> contacto@goldencrisp.com</p>
+    <p>⏰ <strong>Horario:</strong> Lunes a Domingo - 12:00 PM a 10:00 PM</p>
+  </div>
+</section>
+
+<script>
+  function mostrar(id){
+    document.querySelectorAll('.contenedor').forEach(e => e.classList.remove('activo'));
+    document.getElementById(id).classList.add('activo');
+    window.scrollTo(0,0);
+  }
+
+  function pedido(e){
+    e.preventDefault();
+    let lista = document.getElementById("lista");
+    let res = document.getElementById("resumen");
+    lista.innerHTML = "";
+    
+    let productos = [
+      ["Combo Individual Classic", "c1"], ["Combo Power-Loaded", "c2"], ["Combo Fuego-Crisp", "c3"],
+      ["Combo El Monstruo", "c4"], ["Combo Dúo Crisp-Master", "c5"],
+      ["Papas Naturales", "p1"], ["Papas con Queso", "p2"], ["Papas con Tocino", "p3"], ["Papas de Gajo", "p4"]
+    ];
+
+    let hay = false;
+    productos.forEach(p => {
+      let cant = document.getElementById(p[1]).value;
+      if(cant > 0){
+        let li = document.createElement("li");
+        li.innerHTML = `<strong>${p[0]}</strong> x${cant}`;
+        lista.appendChild(li);
+        hay = true;
+      }
+    });
+
+    let extras = document.querySelectorAll('.ex:checked');
+    if(extras.length > 0){
+      let li = document.createElement("li");
+      li.innerHTML = "<em>Extras: " + [...extras].map(x => x.value).join(", ") + "</em>";
+      lista.appendChild(li);
+      hay = true;
+    }
+
+    if(!hay) {
+      alert("¡Oops! No has seleccionado nada para tu pedido.");
+      return;
+    }
+
+    fetch("https://script.google.com/macros/s/AKfycbxRHiCAPzxjAS9WPrlPvoUMcbHKpxSgW8_VRSFO_S-s1y6klIXkFXxA3htBAthtCdak/exec", {
+  method: "POST",
+  body: JSON.stringify({
+    pedido: lista.innerText,
+    extras: [...document.querySelectorAll('.ex:checked')].map(x => x.value).join(", ")
+  })
+});
+
+    res.style.display = "block";
+    res.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
